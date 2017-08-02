@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Flybucks</title>
+  <script src="https://unpkg.com/vue"></script>
+  <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+  <link rel="stylesheet" href="stylesheets/styles.css" type="text/css"/>
+
+  <template id="product-page" >
+    <div>
+      <p>Funky template content!</p>
+      <product v-for="product in products" v-bind:key="product.name" v-bind:product="product"></product>
+    </div>
+  </template>
+
+  <template id="product">
+    <div>product: {{ product.name }}</div>
+  </template>
+
+</head>
+<body>
+
+<div id="app">
+  <nav>
+    <h1>Flybucks</h1>
+    <p>
+      <!-- use router-link component for navigation. -->
+      <!-- specify the link by passing the `to` prop. -->
+      <!-- `<router-link>` will be rendered as an `<a>` tag by default -->
+      <router-link to="/">Products</router-link>
+      <router-link to="/checkout">Checkout</router-link>
+    </p>
+  </nav>
+
+  <!-- route outlet -->
+  <router-view :products="products">
+  </router-view>
+
+</div>
+
+</body>
+
+
+<script type="text/javascript" src="scripts/app.js"></script>
+</html>
